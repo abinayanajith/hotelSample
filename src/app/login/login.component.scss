@@ -1,0 +1,33 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    //background-color: blue;]
+    align-items: center;
+    //opacity: 0.5;
+}
+    
+
+.inside{
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(91, 91, 97,0.5);
+    width: 25rem;
+    height: 28rem;
+}   
+.imgcover{
+    display: inline-block;
+    opacity: 1;
+    text-align: center;
+}
+.user{
+    padding-left: 3rem;
+}
+.but{
+    display: inline-block;
+    text-align: center;
+}
+mat-form-field {
+    margin-right: 12px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }

@@ -1,0 +1,32 @@
+<div class="login">
+    <div class="inside">
+        <div class="imgcover">
+            
+            <img
+              id="profile-img"
+              src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+              class="profile-img-card"
+            />
+            
+        </div>
+        <div class="user">
+            <form (submit)="$event.preventDefault()">
+                <mat-form-field>
+                  <mat-label><b>Username</b></mat-label>
+                  <input matInput (cdkAutofill)="firstNameAutofilled = $event.isAutofilled">
+                  <mat-hint *ngIf="firstNameAutofilled">Autofilled!</mat-hint>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                  <mat-label><b>Password</b></mat-label>
+                  <input matInput (cdkAutofill)="lastNameAutofilled = $event.isAutofilled">
+                  <mat-hint *ngIf="lastNameAutofilled">Autofilled!</mat-hint>
+                </mat-form-field>
+                <br>
+                <div class="but">
+                <button mat-raised-button>Submit</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>
