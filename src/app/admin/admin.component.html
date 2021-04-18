@@ -1,1 +1,167 @@
-<p>admin works!</p>
+
+<div class="formwrapper">
+    <form [ngStyle]="{'background-color':'rgba(91, 91, 97, 0.5)'}" [formGroup]="hotelForm" (ngSubmit)="callingFunction()">
+        <div class="labelwrapper">
+            <label >
+            Hotel Name:
+            <input  [ngStyle]="{'margin-left':'45px' }"type="text" formControlName="hotelName">
+            
+            <br>
+            <span class="text-danger" 
+            *ngIf="(searchFormControl.hotelName.touched || submitted) && searchFormControl.hotelName.errors?.required">
+            Hotel name is required
+            </span>
+            </label>
+        </div>
+        
+        <!-- <div class="labelwrapper">
+          <label>
+              Contract start date:
+          <input [ngStyle]="{'margin-left':'23px' }" [matDatepicker]="basicDatepicker" formControlName="contractStart">
+          <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #basicDatepicker></mat-datepicker>
+          <br>
+          <span class="text-danger" 
+          *ngIf="(searchFormControl.contractStart.touched || submitted) && searchFormControl.contractStart.errors?.required">
+          Contract start date is required
+          </span>
+          </label>
+          
+      </div>  -->
+      
+        
+        
+            <!-- <mat-form-field appearance="fill" >
+              <mat-label>check in date</mat-label>
+              <input [ngStyle]="{'font-weight':'bold'}" matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="checkinDate" >
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> -->
+        <div class="labelwrapper">
+            <label>
+            City:
+            <input [ngStyle]="{'margin-left':'96px' }" type="text" formControlName="city">
+            <br>
+            <span
+            *ngIf="(searchFormControl.city.touched || submitted) && searchFormControl.city.errors?.required">
+            city name is required
+            </span>
+            </label>
+        </div>
+        
+        
+        <div class="labelwrapper">
+            <label>
+            Country:
+            <input [ngStyle]="{'margin-left':'72px' }" type="text" formControlName="country">
+            <br>
+            <span
+            *ngIf="(searchFormControl.country.touched || submitted) && searchFormControl.country.errors?.required">
+            Country is required
+            </span>
+            </label>
+        </div>
+        
+        
+        <div class="labelwrapper">
+          <label>
+              Contract start date:
+          <input [ngStyle]="{'margin-left':'3px' }" [matDatepicker]="basicDatepicker" formControlName="contractStart">
+          <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #basicDatepicker></mat-datepicker>
+          <br>
+          <span class="text-danger" 
+          *ngIf="(searchFormControl.contractStart.touched || submitted) && searchFormControl.contractStart.errors?.required">
+          Contract start date is required
+          </span>
+          </label>
+          
+      </div> 
+      
+      
+      <div class="labelwrapper">
+        <label>
+            Contract end date:
+        <input [ngStyle]="{'margin-left':'10px' }"  [matDatepicker]="basicDatepicke" formControlName="contractEnd">
+        <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #basicDatepicke></mat-datepicker>
+        <br>
+        <span class="text-danger" 
+        *ngIf="(searchFormControl.contractEnd.touched || submitted) && searchFormControl.contractEnd.errors?.required">
+        Contract end date is required
+        </span>
+        </label>
+        
+      </div>
+      
+
+
+
+        <div formArrayName="roomDetails" >
+        <div   class="overflowwrapper" >
+        <div  *ngFor="let room of roomdetails.controls; let pointIndex=index" [formGroupName]="pointIndex" >
+        <div class="roomwrapper">
+        <div  class="labelwrapper">
+         <label>
+          Room type:
+          <input type="text" formControlName="roomType">
+          <br>
+          <span
+          *ngIf="(room.get('roomType').touched || submitted) && room.get('roomType').errors?.required">
+          Room type is required
+          </span>
+        </label>
+        </div>
+        <div  class="labelwrapper">
+        <label>
+          Price:
+            <input type="text" formControlName="price">
+            <br>
+            <span
+            *ngIf="(room.get('price').touched || submitted) && room.get('price').errors?.required">
+             Price is required
+            </span>
+          </label>
+        </div>
+        <div  class="labelwrapper">
+            <label>
+             No. of rooms:
+             <input type="text" formControlName="numbers">
+             <br>
+             <span
+             *ngIf="(room.get('numbers').touched || submitted) && room.get('numbers').errors?.required">
+             No. of rooms is required
+             </span>
+           </label>
+           </div>
+           <div  class="labelwrapper">
+            <label>
+             Maximum adults:
+             <input type="text" formControlName="maxAdults">
+             <br>
+             <span
+             *ngIf="(room.get('maxAdults').touched || submitted) && room.get('maxAdults').errors?.required">
+             Maximum adults is required
+             </span>
+           </label>
+           </div>
+        <div class="buttonwrapper">
+          <button type="button" (click)="deleteSellingPoint(pointIndex)">Delete</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="addwrapper">
+        <button type="button" (click)="addSellingPoint()">Add Room</button>
+        </div>
+    </div>
+    <button type="submit">Submit </button>
+      </form>
+      <!-- <div class="resultcover">
+      <div  class = "resultwrapper"    *ngIf="isresultsArrived"> 
+        <ngx-spinner></ngx-spinner>
+          <app-result></app-result>
+      </div>
+      </div> -->
+      
+</div>
