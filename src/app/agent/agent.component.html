@@ -1,1 +1,104 @@
-<p>agent works!</p>
+
+<div class="formwrapper">
+    <form [ngStyle]="{'background-color':'rgba(91, 91, 97, 0.5)'}" [formGroup]="searchForm" (ngSubmit)="callingFunction()">
+        <div class="labelwrapper">
+            <label >
+            Customer Name:
+            <input type="text" formControlName="customer">
+            <br>
+            <span class="text-danger" 
+            *ngIf="(searchFormControl.customer.touched || submitted) && searchFormControl.customer.errors?.required">
+            customer name is required
+            </span>
+            </label>
+        </div>
+        <br>
+        <div class="labelwrapper">
+            <label>
+                Checkin date:
+            <input [matDatepicker]="basicDatepicker" formControlName="checkinDate">
+            <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #basicDatepicker></mat-datepicker>
+            <br>
+            <span class="text-danger" 
+            *ngIf="(searchFormControl.checkinDate.touched || submitted) && searchFormControl.checkinDate.errors?.required">
+            Checkin date is required
+            </span>
+            </label>
+            
+        </div>
+        
+            <!-- <mat-form-field appearance="fill" >
+              <mat-label>check in date</mat-label>
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="checkinDate" >
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> -->
+        <div class="labelwrapper">
+            <label>
+            No. of nights:
+            <input type="text" formControlName="nights">
+            <br>
+            <span
+            *ngIf="(searchFormControl.nights.touched || submitted) && searchFormControl.nights.errors?.required">
+            No. of nights is required
+            </span>
+            </label>
+        </div>
+
+        <div formArrayName="roomDetails" >
+        <div [ngStyle]="{'max-height':isSubmitted ? '175px' : '280px' }"  class="overflowwrapper" >
+        <div  *ngFor="let room of roomdetails.controls; let pointIndex=index" [formGroupName]="pointIndex" >
+        <div class="roomwrapper">
+        <div  class="labelwrapper">
+         <label>
+          No. of rooms:
+          <input type="text" formControlName="rooms">
+          <br>
+          <span
+          *ngIf="(room.get('rooms').touched || submitted) && room.get('rooms').errors?.required">
+          No. of rooms is required
+          </span>
+        </label>
+        </div>
+        <div  class="labelwrapper">
+        <label>
+          No. of persons:
+            <input type="text" formControlName="persons">
+            <br>
+            <span
+            *ngIf="(room.get('persons').touched || submitted) && room.get('persons').errors?.required">
+             No. of persons is required
+            </span>
+          </label>
+        </div>
+        <div class="buttonwrapper">
+          <button type="button" (click)="deleteSellingPoint(pointIndex)">Delete</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="addwrapper">
+        <button type="button" (click)="addSellingPoint()">Add Room</button>
+        </div>
+    </div>
+    <button type="submit">Submit </button>
+      </form>
+      <div class="resultcover">
+      <div  class = "resultwrapper"    *ngIf="isSubmitted"> 
+        <div *ngFor="let item of items">
+          <div *ngIf="( item|json) != '{}'">
+            <app-result></app-result>
+          </div>
+          <div *ngIf="(item | json) == '{}'">
+            <h1>Not available</h1>
+          </div>
+        </div>
+        <!-- <app-result></app-result> -->
+      </div>
+     </div>
+     
+      
+</div>
+
+

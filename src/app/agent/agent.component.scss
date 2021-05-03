@@ -1,0 +1,107 @@
+.formwrapper{
+    width: 600px;
+    //height:425px;
+    padding-left: 195px;
+    //overflow: auto;
+  
+}
+
+.labelwrapper{
+    padding:10px;
+}
+
+.roomwrapper{
+    display: flex;
+
+}
+
+.buttonwrapper{
+
+    padding-top: 28px;
+    padding-right: 10px;
+}
+
+.addwrapper{
+    padding-left: 215px;
+    padding-top: 20px;
+}
+
+.overflowwrapper{
+
+    max-height: 280px;
+    overflow: auto;
+}
+
+.resultwrapper{
+  // max-height: 240px;
+   height:240px;
+    overflow: auto;
+   
+}
+.resultcover{
+    padding-top: 25px;
+}
+// input.ng-dirty.ng-invalid {
+//     color: red
+//   }
+
+
+
+
+// ::-webkit-scrollbar {
+//     width: 15px;
+//     border: 2px solid blue;
+// }
+// /*tells the browser how the arrows will appear*/
+  
+// ::-webkit-scrollbar-button:single-button {
+//     background-color: rgb(224, 205, 213);
+//     height: 16px;
+//     width: 16px;
+// }
+// /* tells the browser how the scrollable 
+//   handle would look like */
+  
+// ::-webkit-scrollbar-thumb {
+//    // background: transparent;
+//    background-color: #000000;
+//     opacity:0.6 !important;
+// }
+// /* tells the browser how will the 
+//  path of the handle will look like */
+  
+// ::-webkit-scrollbar-track {
+//     background: transparent;
+//     opacity: 1;
+// }
+// /* works the same as ::-webkit-scrollbar-track 
+//       but tells the browser how the path where 
+//       the handle is not present currently*/
+// /* ::-webkit-scrollbar-track-piece{
+//     background: green;
+// } */
+// /* tells the browser how will the point 
+//    where vertical and  horizontal meet will look like*/
+// /* ::-webkit-scrollbar-corner{
+//     background: orange ;
+//     display: solid;
+// } */
+// /* resizer*/
+  
+// ::-webkit-resizer {
+//     background: pink;
+// }
+
+::-webkit-scrollbar-track {
+   // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d4c2c2;
+}
